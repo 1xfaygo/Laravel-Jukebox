@@ -1,1 +1,2 @@
-# Laravel-Jukebox maar alle commit die ik vanaf me PC doe
+# Laravel-Jukebox maar alle commits die doe ik vanaf mijn PC
+
