@@ -1,0 +1,49 @@
+/* Spotify-inspired Artists Page */
+
+/* Header styles */
+h1 {
+    text-align: center;
+    color: #1DB954;
+    font-weight: 700;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+/* Artist list */
+ul {
+    list-style: none;
+    padding: 0;
+    max-width: 700px;
+    margin: 30px auto;
+}
+
+ul li {
+    background-color: #222326;
+    color: #fff;
+    padding: 18px 24px;
+    margin-bottom: 16px;
+    border-radius: 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    font-size: 1.15em;
+    display: flex;
+    align-items: center;
+    transition: background 0.2s, transform 0.2s;
+}
+
+ul li:hover {
+    background-color: #282828;
+    transform: scale(1.02);
+}
+
+/* Back to home link */
+a {
+    color: #1DB954;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+a:hover {
+    color: #fff;
+}
+    

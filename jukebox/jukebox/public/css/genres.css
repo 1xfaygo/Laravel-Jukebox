@@ -1,0 +1,70 @@
+/* Spotify-inspired Genres Page */
+body {
+    background-color: #191414;
+    color: #fff;
+    font-family: 'Circular Std', Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+    color: #1DB954;
+    font-weight: 700;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+/* List styles */
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 30px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    max-width: 900px;
+}
+
+/* List item styling */
+li {
+    background: #222326;
+    color: #fff;
+    border-radius: 16px;
+    padding: 18px 32px;
+    margin: 0 0 18px 0;
+    font-size: 1.1em;
+    font-weight: 500;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    transition: background 0.2s, transform 0.2s;
+}
+
+li:hover {
+    background: #282828;
+    transform: scale(1.03);
+}
+
+/* Footer styles */
+.footer {
+    background: #222326;
+    color: #b3b3b3;
+    text-align: center;
+    padding: 20px 0;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    font-size: 1em;
+}
+
+.footer a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
