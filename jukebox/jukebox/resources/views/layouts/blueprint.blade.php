@@ -69,6 +69,32 @@
             padding: 24px 0 16px 0;
             background: transparent;
             text-align: left;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header-content {
+            flex: 1;
+        }
+        .auth-links {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        .auth-links a {
+            color: #fff;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: background 0.2s;
+        }
+        .auth-links a:hover {
+            background: #1DB954;
+            color: #191414;
+        }
+        .auth-links .user-name {
+            color: #1DB954;
+            margin-right: 10px;
         }
         header h1 {
             color: #fff;
@@ -119,8 +145,24 @@
     </aside>
     <main class="main-content">
         <header>
-            <h1>@yield('page_title', 'Welcome!')</h1>
-            <p>@yield('page_subtitle', 'Your personal music collection.')</p>
+            <div class="header-content">
+                <h1>@yield('page_title', 'Welcome!')</h1>
+                <p>@yield('page_subtitle', 'Your personal music collection.')</p>
+            </div>
+            <div class="auth-links">
+                @auth
+                    <span class="user-name">{{ Auth::user()->name }}</span>
+                    <form method="POST" action="{{ route('logout') }}" style="display: inline;">
+                        @csrf
+                        <a href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();">
+                            Logout
+                        </a>
+                    </form>
+                @else
+                    <a href="{{ route('login') }}">Login</a>
+                    <a href="{{ route('register') }}">Register</a>
+                @endauth
+            </div>
         </header>
         @yield('body')
         @yield('goback')

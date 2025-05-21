@@ -1,62 +1,40 @@
 @extends('layouts.blueprint')
 
+@section('page_title', 'Login')
+@section('page_subtitle', 'Sign in to your account')
+
 @section('body')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Login</div>
-
-                <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
-
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">Email Address</label>
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">Password</label>
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-                                    <label class="form-check-label" for="remember">
-                                        Remember Me
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Login
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
+<div class="auth-container" style="max-width: 400px; margin: 0 auto; padding: 20px;">
+    <form method="POST" action="{{ route('login') }}" style="background: #222326; padding: 30px; border-radius: 10px;">
+        @csrf
+        <div style="margin-bottom: 20px;">
+            <label for="email" style="display: block; color: #fff; margin-bottom: 8px;">Email</label>
+            <input type="email" name="email" id="email" required autofocus
+                style="width: 100%; padding: 10px; border: none; border-radius: 5px; background: #191414; color: #fff;"
+                value="{{ old('email') }}">
+            @error('email')
+                <span style="color: #ff4444; font-size: 0.9em;">{{ $message }}</span>
+            @enderror
         </div>
-    </div>
+
+        <div style="margin-bottom: 20px;">
+            <label for="password" style="display: block; color: #fff; margin-bottom: 8px;">Password</label>
+            <input type="password" name="password" id="password" required
+                style="width: 100%; padding: 10px; border: none; border-radius: 5px; background: #191414; color: #fff;">
+            @error('password')
+                <span style="color: #ff4444; font-size: 0.9em;">{{ $message }}</span>
+            @enderror
+        </div>
+
+        <button type="submit" 
+            style="width: 100%; padding: 12px; background: #1DB954; color: #191414; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; transition: background 0.2s;">
+            Login
+        </button>
+
+        <p style="text-align: center; margin-top: 20px; color: #b3b3b3;">
+            Don't have an account? 
+            <a href="{{ route('register') }}" style="color: #1DB954; text-decoration: none;">Register here</a>
+        </p>
+    </form>
 </div>
 @endsection 
